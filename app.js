@@ -4,7 +4,6 @@ var path = require('path');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -20,7 +19,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // Error handlers
 app.use((_req, _res, next) => next(createError(404)));
