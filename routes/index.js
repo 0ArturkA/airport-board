@@ -1,5 +1,5 @@
-var { Router } = require('express');
-var router = new Router();
+const { Router } = require('express');
+const router = new Router();
 
 router.get('/', (_req, res) => res.render('index'));
 
