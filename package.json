@@ -1,7 +1,7 @@
 {
   "name": "airport-board",
   "version": "0.0.0",
-  "description": "Airport board from SVO API",
+  "description": "Airport board from SIP API",
   "main": "bin/www",
   "repository": "https://github.com/0ArturkA/airport-board.git",
   "author": "Morbo",
