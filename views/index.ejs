@@ -1,11 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Airport Board</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q="
+      crossorigin="anonymous"
+    />
+    <style>
+      .top-margin {
+        position: relative;
+        top: 10%;
+      }
+    </style>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="ui stackable very relaxed center aligned container top-margin">
+      <h1 style="margin-bottom: 40px">
+        Табло аэропорта <i class="plane icon"></i> Симферополь
+      </h1>
+      <div class="ui top attached fluid two item menu" style="margin-top: 20px">
+        <a class="active item"><i class="caret up icon"></i> Вылет</a>
+        <a class="item"><i class="caret down icon"></i> Прилет</a>
+      </div>
+      <div class="ui attached segment">
+        <div class="ui icon icon fluid input">
+          <input type="text" placeholder="Номер рейса..." />
+          <i class="circular search link icon"></i>
+        </div>
+      </div>
+      <div class="ui padded attached segment">
+        <table class="ui very basic table">
+          <thead>
+            <tr>
+              <th>Номер</th>
+              <th>Время</th>
+              <th>Рейс</th>
+              <th>Перевозчик</th>
+              <th>Трансопрт</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i = 0; i < 5; i++) { %>
+            <tr>
+              <td>U6 526</td>
+              <td>16:00</td>
+              <td>Симферополь — Москва</td>
+              <td>Уральские авиалинии</td>
+              <td>Airbus А321</td>
+              <td>
+                <button class="ui icon mini basic circular button">
+                  <i class="ellipsis horizontal icon"></i>
+                </button>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+      <iframe
+        frameborder="0"
+        style="overflow: hidden; border: 0; width: 740px; height: 51px; margin-top: 10px"
+        src="//yandex.st/rasp/media/apicc/copyright_horiz_yellow.html"
+      >
+      </iframe>
+    </div>
   </body>
 </html>
