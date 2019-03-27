@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
 // Error handlers
-app.use((_req, _res, next) => next(createError(404)));
+app.use((_req, _res, next) => next(createError.NotFound()));
 app.use((err, req, res, _next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
