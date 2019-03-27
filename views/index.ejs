@@ -24,8 +24,16 @@
         Табло аэропорта <i class="plane icon"></i> Симферополь
       </h1>
       <div class="ui top attached two item menu" style="margin-top: 20px">
-        <a class="active item"><i class="caret up icon"></i> Вылет</a>
-        <a class="item"><i class="caret down icon"></i> Прилет</a>
+        <a
+          class="item <%- (event === 'departure' && 'active') %>"
+          href="/timetable/departure"
+          ><i class="caret up icon"></i> Вылет</a
+        >
+        <a
+          class="item <%- (event === 'arrival' && 'active') %>"
+          href="/timetable/arrival"
+          ><i class="caret down icon"></i> Прилет</a
+        >
       </div>
       <div class="ui attached segment">
         <div class="ui icon icon fluid input">
@@ -46,13 +54,13 @@
             </tr>
           </thead>
           <tbody>
-            <% for (let i = 0; i < 5; i++) { %>
+            <% for (const schedule of schedules) { %>
             <tr>
-              <td>U6 526</td>
+              <td><%- schedule.number %></td>
               <td>16:00</td>
-              <td>Симферополь — Москва</td>
-              <td>Уральские авиалинии</td>
-              <td>Airbus А321</td>
+              <td><%- schedule.flight %></td>
+              <td><%- schedule.carrier %></td>
+              <td><%- schedule.vehicle %></td>
               <td>
                 <button class="ui icon mini basic circular button">
                   <i class="ellipsis horizontal icon"></i>
@@ -65,7 +73,10 @@
       </div>
       <div class="ui bottom attached three item menu">
         <a class="item disabled"><i class="arrow left icon"></i> Предыдущая</a>
-        <span class="item">1 из 100</span>
+        <span class="item"
+          >1 из <%- Math.round(pagination.total / pagination.limit) || 1
+          %></span
+        >
         <a class="item">
           Следующая
           <i class="arrow right icon" style="margin-left: .35714286em"></i>
