@@ -4,6 +4,7 @@ const path = require('path');
 const logger = require('morgan');
 
 const cacheMiddleware = require('./middleware/cache');
+const queryLocals = require('./middleware/query-locals');
 const indexRouter = require('./routes/index');
 
 const app = express();
@@ -17,7 +18,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cacheMiddleware(10));
+app.use(cacheMiddleware(20));
+app.use(queryLocals);
 
 // Routes
 app.use('/', indexRouter);

@@ -36,10 +36,15 @@
         >
       </div>
       <div class="ui attached segment">
-        <div class="ui icon icon fluid input">
-          <input type="text" placeholder="Номер рейса..." />
-          <i class="circular search link icon"></i>
-        </div>
+        <form id="search">
+          <div class="ui icon icon fluid input">
+            <input type="text" name="number" placeholder="Номер рейса..." />
+            <i
+              class="circular search link icon"
+              onclick="document.getElementById('search').submit();"
+            ></i>
+          </div>
+        </form>
       </div>
       <div class="ui padded attached segment">
         <table class="ui very basic table">
@@ -74,7 +79,7 @@
       <div class="ui bottom attached three item menu">
         <a
           class="item <%- +pagination.offset === 0 && 'disabled' %>"
-          href="?offset=<%- +pagination.offset - +pagination.limit %>"
+          href="?offset=<%- +pagination.offset - +pagination.limit %><%- query.number && `&number=${query.number}` %>"
           ><i class="arrow left icon"></i> Предыдущая</a
         >
         <span class="item"
