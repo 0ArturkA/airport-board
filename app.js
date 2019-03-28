@@ -17,7 +17,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cacheMiddleware(5));
+app.use(cacheMiddleware(10));
 
 // Routes
 app.use('/', indexRouter);
