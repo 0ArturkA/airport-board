@@ -48,12 +48,7 @@ module.exports.findSchedulesByNumber = async (number, params) => {
   const foundSchedules = schedules.filter(schedule =>
     schedule.number.includes(number)
   );
-  console.log('total 1:', foundSchedules.length);
-  console.log('offset:', params.offset);
-  console.log('limit:', params.limit);
   const paginatedSchedules = foundSchedules.slice(params.offset, params.limit);
-  console.log('total 2:', foundSchedules.length);
-  console.log('paginated:', paginatedSchedules.length);
   return {
     pagination: {
       total: foundSchedules.length,
