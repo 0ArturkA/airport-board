@@ -72,12 +72,19 @@
         </table>
       </div>
       <div class="ui bottom attached three item menu">
-        <a class="item disabled"><i class="arrow left icon"></i> Предыдущая</a>
-        <span class="item"
-          >1 из <%- Math.round(pagination.total / pagination.limit) || 1
-          %></span
+        <a
+          class="item <%- +pagination.offset === 0 && 'disabled' %>"
+          href="?offset=<%- +pagination.offset - +pagination.limit %>"
+          ><i class="arrow left icon"></i> Предыдущая</a
         >
-        <a class="item">
+        <span class="item"
+          ><%- (pagination.offset / pagination.limit) + 1 %> из <%-
+          Math.ceil(pagination.total / pagination.limit) || 1 %></span
+        >
+        <a
+          class="item <%- +pagination.offset + +pagination.limit >= pagination.total && 'disabled' %>"
+          href="?offset=<%- +pagination.offset + +pagination.limit %>"
+        >
           Следующая
           <i class="arrow right icon" style="margin-left: .35714286em"></i>
         </a>
